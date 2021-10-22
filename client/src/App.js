@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import SimpleStorageContract from "./contracts/SimpleStorage.json";
 import getWeb3 from "./getWeb3";
 import SimpleStorage from './contracts/SimpleStorage.json';
@@ -12,7 +12,12 @@ function App(){
   const [account, setAccount] = useState("");
 
   useEffect(() => {
-    effect
+    async function login() {
+      await loadWeb3();
+      await loadBlockchainData();
+    }
+
+    login();
     
   }, [])
   
