@@ -18,6 +18,7 @@ function ViewArticle() {
       const networkId = await web3State.eth.net.getId();
       const networkData = TipCuratorsContract.networks[networkId];
       console.log(networkData.address);
+
       const tipCurators = new web3State.eth.Contract(
         TipCuratorsContract.abi,
         networkData.address
@@ -25,7 +26,7 @@ function ViewArticle() {
 
       // const price = ethers.utils.parseUnits(amount, "gwei");
 
-      const price = web3State.utils.toWei("0.1", "Ether");
+      const price = web3State.utils.toWei("0.2", "Ether");
       console.log(address, price);
 
       const transaction = await tipCurators.methods.donate(address).send({

@@ -2,6 +2,7 @@
 pragma solidity ^0.8.1;
 
 import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 library SafeMath {
     function add(uint256 x, uint256 y) internal pure returns (uint256 z) {
@@ -31,9 +32,15 @@ interface IUniswapV2Router {
         returns (uint256[] memory amounts);
 }
 
-interface IERC20 {
-    function approve(address spender, uint256 amount) external returns (bool);
-}
+// interface IERC20 {
+//     function approve(address spender, uint256 amount) external returns (bool);
+
+//     function transferFrom(
+//         address from,
+//         address to,
+//         uint256 value
+//     ) external returns (bool);
+// }
 
 contract Donation {
     using SafeMath for uint256;
@@ -42,12 +49,16 @@ contract Donation {
     Counters.Counter public _postsId;
     Counters.Counter private _creatorsId;
 
-    address private DAI = 0xDD2C1fB2b9c5D5500b8Da6B817504589e9eBe12f; // polygon mainnet
+    // address private DAI = 0xDD2C1fB2b9c5D5500b8Da6B817504589e9eBe12f; // polygon mainnet
+    address private DAI = 0xaD6D458402F60fD3Bd25163575031ACDce07538D; // ropsten
 
+    // address private UniswapV2Router02 =
+    //     0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff; //polygon mainnet
     address private UniswapV2Router02 =
-        0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff; //polygon mainnet
+        0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D; //   ropsten
 
-    address private WMATIC = 0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270; // polygon mainnet
+    // address private WMATIC = 0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270; // polygon mainnet
+    address private WETH = 0xc778417E063141139Fce010982780140Aa0cD5Ab; // ropsten
 
     IUniswapV2Router uniswapRouter = IUniswapV2Router(UniswapV2Router02);
 
@@ -107,7 +118,7 @@ contract Donation {
         require(msg.sender.balance >= msg.value, "Not enough balance");
         require(msg.sender != _creator, "Creator can not contribute");
 
-        IERC20(WMATIC).approve(UniswapV2Router02, msg.value);
+        IERC20(WETH).approve(UniswapV2Router02, msg.value);
         uint256 amountOut = getAmountOutMin(msg.value);
         address[] memory path = getPath();
 
@@ -137,7 +148,7 @@ contract Donation {
         address[] memory path;
 
         path = new address[](2);
-        path[0] = WMATIC;
+        path[0] = WETH;
         path[1] = DAI;
 
         return path;
