@@ -24,9 +24,8 @@ function ViewArticle() {
         networkData.address
       );
 
-      // const price = ethers.utils.parseUnits(amount, "gwei");
+      const price = ethers.utils.parseUnits(amount, "gwei");
 
-      const price = web3State.utils.toWei("0.2", "Ether");
       console.log(address, price);
 
       const transaction = await tipCurators.methods.donate(address).send({
