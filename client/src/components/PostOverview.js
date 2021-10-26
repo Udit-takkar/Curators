@@ -20,7 +20,7 @@ export default function PostOverview({ post : { title, body, author, id } }) {
         window.location.href = `/post/${id}`;
     }
 
-    const smallBody = truncateString(body, body.length/7)
+    const smallBody = truncateString(body, 300)
     return (
         <div>
 

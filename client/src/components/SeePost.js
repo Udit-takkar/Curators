@@ -21,7 +21,7 @@ export default function SeePost() {
   const post = JSON.parse(localStorage.getItem("ablogs"));
   const [web3State, setWeb3State] = useState(null);
   
-  const [tipAmount, seTipAmount] = useState(0.02);
+  const [tipAmount, seTipAmount] = useState("0");
 
   const handleChange = ({ target: { value } }) => {
     seTipAmount(value);
