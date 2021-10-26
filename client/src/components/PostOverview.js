@@ -4,7 +4,7 @@ import SeePost from './SeePost';
 import { Link, useHistory } from "react-router-dom";
 
 
-export default function PostOverview({title, body , author }) {
+export default function PostOverview({ post : { title, body, author, id } }) {
 
     function truncateString(str, num) {
         if (str.length <= num) {
@@ -17,7 +17,7 @@ export default function PostOverview({title, body , author }) {
     function clickViewPost(post) {
         console.log("Post: ",post);
         localStorage.setItem('ablogs',JSON.stringify(post));
-        window.location.href = '/seePost';
+        window.location.href = `/post/${id}`;
     }
 
     const smallBody = truncateString(body, body.length/7)
@@ -31,7 +31,7 @@ export default function PostOverview({title, body , author }) {
                 <div >
                     <b>{title}</b>
                 </div> 
-                <div >
+                <div     >
                     <ReactMarkdown children={smallBody}/>
                     <br/> 
                     <p className="text-black-50">Read more</p>        

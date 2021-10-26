@@ -8,11 +8,6 @@ body ,html{
   overflow-x: hidden !important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 .nav-link{
   color: black !important;
 }
@@ -26,26 +21,46 @@ code {
   display: flex !important;
 }
 
-.container1{
-  background-color: rgb(213, 160, 91);
-  width: 100vw !important;
-  height: 42vh;
-  margin-top: 0px !important;
-  
-}
-
-.container2{
-  background-color: rgb(184, 175, 175);
-  width: 100vw !important;
-  height: 22vh;
-  margin-top: 0px !important; 
-}
-
 .mr-0 {
   margin-right: 0px !important;
 }
 
-
-.post-overview:hover {
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+.hero-container {
+  display: flex;
+  padding: 60px 100px 40px;
+  justify-content: space-between;
+  background-color: #06285e;
+  color: white;
+  position: relative;
 }
+
+.hero {
+  max-width: 700px;
+  padding-top: 50px;
+}
+
+.hero > p {
+  font-size: 26px;
+  margin-bottom: 0;
+}
+
+.polygon-img {
+  width: 230px;
+  margin: 0px 30px 30px;
+}
+
+.eth-home-img {
+  position: absolute;
+  width: 60px;
+  bottom: 50px;
+  right: 40px;
+}
+
+.home-img-container {
+  display: flex;
+}
+
+/* .home-img-container > img {
+  width: 100px;
+  margin: 20px
+} */

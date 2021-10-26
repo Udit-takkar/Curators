@@ -2,8 +2,8 @@ const path = require("path");
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 require("dotenv").config()
 
-// const mnemonic =
-//   "gun hover twin vessel cherry expire expect off pet icon poet supply";
+const mnemonic =
+  "gun hover twin vessel cherry expire expect off pet icon poet supply";
 
 // https://rpc-mainnet.maticvigil.com/v1/c8ec055f4fb8bf5bc8c079b4bf5513807a791e96
 // https://ropsten.infura.io/v3/07dae931bd384266ac3d74454f85f41e
@@ -36,7 +36,7 @@ module.exports = {
     ropsten: {
       provider: () =>
         new HDWalletProvider(
-          process.env.mnemonic,
+          mnemonic,
           `https://ropsten.infura.io/v3/07dae931bd384266ac3d74454f85f41e`
         ),
       network_id: 3,
