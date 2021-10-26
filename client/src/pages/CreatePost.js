@@ -27,7 +27,8 @@ function CreatePost() {
       // console.log(networkData.address);
       const tipCurators = new web3State.eth.Contract(
         TipCuratorsContract.abi,
-        networkData.address
+        "0xbcf39c8908C6320bd2984a670de07A581ff14c87"
+
       );
       const data = JSON.stringify({
         title: formState.title,
@@ -55,7 +56,7 @@ function CreatePost() {
   }, []);
   return (
     <div
-      style={{ display: "flex", flexDirection: "column", marginTop: "200px" }}
+      style={{ display: "flex", flexDirection: "column", marginBottom:'40px',marginTop: "90px", width:"60vw", marginLeft:"310px" }}
     >
       <input
         onChange={handleChange}
@@ -71,7 +72,7 @@ function CreatePost() {
         handler={handleEditor}
         theme="light"
       />
-      <button style={{ padding: "30px" }} onClick={handleSubmit}>
+      <button style={{ padding: "30px", backgroundColor:"rgb(213, 160, 91)" , color:"white"}} onClick={handleSubmit}>
         Post
       </button>
     </div>

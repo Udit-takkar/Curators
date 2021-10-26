@@ -21,7 +21,7 @@ function ViewArticle() {
 
       const tipCurators = new web3State.eth.Contract(
         TipCuratorsContract.abi,
-        networkData.address
+        "0xbcf39c8908C6320bd2984a670de07A581ff14c87"
       );
 
       const price = ethers.utils.parseUnits(amount, "gwei");
