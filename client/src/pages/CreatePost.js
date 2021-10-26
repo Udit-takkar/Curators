@@ -72,7 +72,7 @@ function CreatePost() {
         handler={handleEditor}
         theme="light"
       />
-      <button style={{ padding: "30px", backgroundColor:"rgb(213, 160, 91)" , color:"white"}} onClick={handleSubmit}>
+      <button style={{ padding: "10px", backgroundColor:"#06285e" , color:"white"}} onClick={handleSubmit}>
         Post
       </button>
     </div>

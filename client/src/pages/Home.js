@@ -6,7 +6,7 @@ import axios from "axios";
 
 // imgs
 import MoneyJarImg from "../svg/money-jar.svg";
-import PolygonImg from "../svg/Polygon.png";
+import PolygonImg from "../svg/polygon.png";
 import EthImg from "../svg/eth2.png";
 
 import PostOverview from "../components/PostOverview";
