@@ -9,8 +9,8 @@ export default function Navbar() {
   );
 
   const duck = string => {
-    return `${string.substr(0, 5)}...${string.substr(-5, 5)}`
-  }
+    return `${string.substr(0, 5)}...${string.substr(-5, 5)}`;
+  };
 
   return (
     <div>
@@ -41,7 +41,7 @@ export default function Navbar() {
               <div
                 className=" dropdown-item"
                 style={{
-                  fontSize: "12px",
+                  fontSize: "15px",
                   cursor: "pointer",
                 }}
                 onClick={() =>
