@@ -18,14 +18,14 @@ function ViewArticle() {
       const networkId = await web3State.eth.net.getId();
       const networkData = TipCuratorsContract.networks[networkId];
       console.log(networkData.address);
+
       const tipCurators = new web3State.eth.Contract(
         TipCuratorsContract.abi,
-        networkData.address
+        "0xbcf39c8908C6320bd2984a670de07A581ff14c87"
       );
 
-      // const price = ethers.utils.parseUnits(amount, "gwei");
+      const price = ethers.utils.parseUnits(amount, "gwei");
 
-      const price = web3State.utils.toWei("0.1", "Ether");
       console.log(address, price);
 
       const transaction = await tipCurators.methods.donate(address).send({
